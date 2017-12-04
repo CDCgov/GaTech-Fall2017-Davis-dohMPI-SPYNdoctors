@@ -1,0 +1,22 @@
+ServiceResult {
+    background-color: lightsteelblue;
+    display: block;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+ResponseStatus {
+    background-color: chartreuse;
+    border: 2px solid black;
+    display: block;
+    margin-bottom: 10px;
+}
+
+FirstName {
+    font-weight: bold;
+    display: block;
+}
+
+LastName {
+    display: block;
+}

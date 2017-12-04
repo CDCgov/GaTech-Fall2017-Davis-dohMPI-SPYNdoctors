@@ -1,0 +1,78 @@
+<html>
+<head>
+<style>
+    .red-star {
+        color: red;
+    }
+    .green-star {
+        color: green;
+    }
+    .pink-star {
+        color: pink;
+    }
+    .orange-star {
+        color: orange;
+    }
+</style>
+</head>
+<body>
+<h1> Enter Personal Data for DOH MPI matching </h1>
+
+<form action="/DohMPI_EDEN/rest/match" method="post">
+
+<table>
+    <tr>
+
+        <td> First name:<span class="red-star">*</span></td><td> <input type="text" name="first_name" /></td>
+
+    </tr>
+    <tr>
+    <td>Last name:<span class="red-star">*</span></td><td> <input type="text" name="last_name" /></td>
+    </tr>
+    <tr>
+        <td>Date of birth (MM/DD/YYYY):<span class="red-star">*</span> </td><td><input type="text" name="date_of_birth" /></td>
+    </tr>
+<tr>
+    <td>Gender:<span class="green-star">**</span> </td><td>
+    <select name="gender">
+    <option value="Any">Any</option>
+    <option value="F">F</option>
+    <option value="M">M</option>
+    <option value="UNK">UNK</option>
+    </select>
+    </td>
+
+</tr>
+
+    <tr>
+        <td> Address. Street number: <span class="orange-star">**</span></td><td> <input type="text" name="street_number" /></td>
+    </tr>
+
+    <tr>
+        <td>Address. Street name: <span class="orange-star">**</span></td><td><input type="text" name="street_name" /></td>
+    </tr>
+    <tr>
+        <td>Address. Unit/Apt number: </td><td><input type="text" name="apartment" /></td>
+    </tr>
+    <tr>
+        <td>Address. City: </td><td><input type="text" name="city" /></td>
+    </tr>
+    <tr>
+        <td>Address. Zip code: </td><td><input type="text" name="zip" /></td>
+    </tr>
+    <tr>
+        <td>Phone Number (10 digits; no other chars) : </td><td><input type="text" name="phone" /></td>
+    </tr>
+</table>
+    <p>
+        <span class="red-star">*</span> Required field
+    </p>
+    <p>
+        <span class="green-star">*</span><span class="orange-star">*</span>Either gender or both Street number and Street name are required
+    </p>
+
+    <input type="submit" />
+</form>
+
+</body>
+</html>
