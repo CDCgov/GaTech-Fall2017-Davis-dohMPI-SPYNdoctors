@@ -1,0 +1,9 @@
+ docker run -d --name my_data data_for_mysql
+ 
+  
+ 
+ docker run --name mysql_for_data --volumes-from my_data -e MYSQL_ROOT_PASSWORD=cs6440exp -d mysql:5.7
+ 
+ 
+ docker run -it --link mysql_for_data:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"' 
+ 

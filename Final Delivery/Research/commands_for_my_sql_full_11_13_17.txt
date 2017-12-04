@@ -1,0 +1,94 @@
+ 258  pwd
+  259  ls
+  260  cat Dockerfile
+  261  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql:mysqldb --link my_postgres:postgresdb webserver
+  262  cp ~/IdeaProjects/DohMPI_EDEN/out/artifacts/DohMPI_EDEN/DohMPI_EDEN.war .
+  263  docker build -t webserver .
+  264  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql:mysqldb --link my_postgres:postgresdb webserver
+  265  cp ~/IdeaProjects/DohMPI_EDEN/out/artifacts/DohMPI_EDEN/DohMPI_EDEN.war .
+  266  docker build -t webserver .
+  267  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql:mysqldb --link my_postgres:postgresdb webserver
+  268  cp ~/IdeaProjects/DohMPI_EDEN/out/artifacts/DohMPI_EDEN/DohMPI_EDEN.war .
+  269  docker build -t webserver .
+  270  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql:mysqldb --link my_postgres:postgresdb webserver
+  271  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql:mysqldb --link my_postgres:postgresdb webserver /bin/bash
+  272  ls
+  273  mkdir data
+  274  cd data 
+  275  cp /media/sf_shared/edenpopulate.sql .
+  276  cd ..
+  277  docker run --name my_mysql_full -v  ./data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql:5.7
+  278  pwd
+  279  docker run --name my_mysql_full -v data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql:5.7
+  280  pwd
+  281  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql:5.7
+  282  ls -l /data
+  283  ls -l data
+  284  gedit Dockerfile_mysql
+  285  docker build -f Dockerfile_mysql -t mysql_perm .
+  286  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql_perm
+  287* 
+  288  docker build -f Dockerfile_mysql -t mysql_perm .
+  289  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql_perm
+  290  cd data
+  291  ls
+  292  gedit edenpopulate.sql
+  293  cd ..
+  294  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql_perm
+  295  cd data
+  296  ls
+  297  gedit edenpopulate.sql
+  298  cd ..
+  299  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql_perm
+  300  cd data
+  301  ls
+  302  gedit edenpopulate.sql
+  303  cd data
+  304  cd ..
+  305  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  mysql_perm
+  306  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=cs6440  -d mysql_perm
+  307  cp ~/IdeaProjects/DohMPI_EDEN/out/artifacts/DohMPI_EDEN/DohMPI_EDEN.war .
+  308  docker build -t webserver .
+  309  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql_full:mysqldb --link my_postgres:postgresdb webserver 
+  310  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_USER=edenuser -e MYSQL_PASSWORD=cs6440 -e MYSQL_DATABASE=eden -e MYSQL_ROOT_PASSWORD=cs6440  mysql_perm
+  311  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -e MYSQL_USER=edenuser -e MYSQL_PASSWORD=cs6440 -e MYSQL_DATABASE=eden -e MYSQL_ROOT_PASSWORD=cs6440 -d mysql_perm
+  312  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql_full:mysqldb --link my_postgres:postgresdb webserver 
+  313  gedit Dockerfile_mysql
+  314  docker build -f Dockerfile_mysql -t mysql_perm .
+  315  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d  mysql_perm
+  316  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -d  mysql_perm
+  317  docker run --name my_postgres -e POSTGRES_PASSWORD=cs6440 -d ayanovsk/my_postgres_full
+  318  cp ~/IdeaProjects/DohMPI_EDEN/out/artifacts/DohMPI_EDEN/DohMPI_EDEN.war .
+  319  docker build -t webserver .
+  320  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql_full:mysqldb --link my_postgres:postgresdb webserver 
+  321  docker run -it --link my_mysql_full:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
+  322  cd data
+  323  ls
+  324  gedit edenpopulate.sql
+  325  cd ..
+  326  docker build -f Dockerfile_mysql -t mysql_perm .
+  327  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d -d  mysql_perm
+  328  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql_full:mysqldb --link my_postgres:postgresdb webserver 
+  329  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d   mysql_perm
+  330  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d   -d mysql_perm
+  331  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql_full:mysqldb --link my_postgres:postgresdb webserver 
+  332  cd data
+  333  gedit edenpopulate.sql
+  334  docker run -it --link my_mysql_full:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
+  335  gedit edenpopulate.sql
+  336  cd ..
+  337  docker build -f Dockerfile_mysql -t mysql_perm .
+  338  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d   -d mysql_perm
+  339  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d   mysql_perm
+  340  cd data
+  341  gedit edenpopulate.sql
+  342  cd ..
+  343  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d   mysql_perm
+  344  docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d  -d  mysql_perm
+  345  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql_full:mysqldb --link my_postgres:postgresdb webserver 
+  346  history
+student@student-VirtualBox:~/doh_mpi_eden$ 
+
+
+
+

@@ -1,0 +1,5 @@
+From tomcat:8.0-jre8
+Env CATALINA_OPTS -DMatcherPropertiesFilePath=/usr/local/tomcat/matcher.properties
+Add DohMPI_EDEN.war /usr/local/tomcat/webapps/
+Add matcher.properties /usr/local/tomcat/
+

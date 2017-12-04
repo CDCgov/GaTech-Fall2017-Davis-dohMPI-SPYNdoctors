@@ -1,0 +1,374 @@
+proctol where I started postgresql and mysql  (and history of commands below).
+
+alex@alex-VirtualBox:~$ docker run -it --rm -p 8888:8080 tomcat:8.0
+Unable to find image 'tomcat:8.0' locally
+8.0: Pulling from library/tomcat
+85b1f47fba49: Pull complete 
+5409e9a7fa9e: Pull complete 
+2b13d87807d6: Pull complete 
+186c5e5371c7: Pull complete 
+2a03dd5c3463: Pull complete 
+aa950b3b83b9: Pull complete 
+2f816241a760: Pull complete 
+986c6c596429: Pull complete 
+4f422a2c2ec8: Pull complete 
+a768e6116d65: Pull complete 
+e831b2f8fb30: Pull complete 
+1270a8fe6aaa: Pull complete 
+Digest: sha256:b2c97ec80e14fa528dc070fa53ec81f011fa94e0794a40724470efead72520bb
+Status: Downloaded newer image for tomcat:8.0
+Using CATALINA_BASE:   /usr/local/tomcat
+Using CATALINA_HOME:   /usr/local/tomcat
+Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+Using JRE_HOME:        /docker-java-home/jre
+Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+11-Oct-2017 20:40:47.084 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.47
+11-Oct-2017 20:40:47.086 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 29 2017 13:46:41 UTC
+11-Oct-2017 20:40:47.090 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.47.0
+11-Oct-2017 20:40:47.090 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+11-Oct-2017 20:40:47.090 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.2.0-27-generic
+11-Oct-2017 20:40:47.090 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+11-Oct-2017 20:40:47.090 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-7-openjdk-amd64/jre
+11-Oct-2017 20:40:47.091 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_151-b01
+11-Oct-2017 20:40:47.091 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+11-Oct-2017 20:40:47.091 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+11-Oct-2017 20:40:47.092 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+11-Oct-2017 20:40:47.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+11-Oct-2017 20:40:47.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+11-Oct-2017 20:40:47.098 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+11-Oct-2017 20:40:47.099 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+11-Oct-2017 20:40:47.099 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/usr/local/tomcat/endorsed
+11-Oct-2017 20:40:47.099 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+11-Oct-2017 20:40:47.100 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+11-Oct-2017 20:40:47.100 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+11-Oct-2017 20:40:47.100 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.14 using APR version 1.5.1.
+11-Oct-2017 20:40:47.101 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+11-Oct-2017 20:40:47.122 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.1.0f  25 May 2017)
+11-Oct-2017 20:40:47.309 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+11-Oct-2017 20:40:47.334 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+11-Oct-2017 20:40:47.345 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1130 ms
+11-Oct-2017 20:40:47.474 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+11-Oct-2017 20:40:47.474 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.47
+11-Oct-2017 20:40:47.526 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /usr/local/tomcat/webapps/ROOT
+11-Oct-2017 20:40:48.659 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /usr/local/tomcat/webapps/ROOT has finished in 1,134 ms
+11-Oct-2017 20:40:48.660 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /usr/local/tomcat/webapps/examples
+11-Oct-2017 20:40:49.462 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /usr/local/tomcat/webapps/examples has finished in 802 ms
+11-Oct-2017 20:40:49.465 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /usr/local/tomcat/webapps/docs
+11-Oct-2017 20:40:49.672 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /usr/local/tomcat/webapps/docs has finished in 207 ms
+11-Oct-2017 20:40:49.683 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /usr/local/tomcat/webapps/manager
+11-Oct-2017 20:40:49.882 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /usr/local/tomcat/webapps/manager has finished in 199 ms
+11-Oct-2017 20:40:49.883 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /usr/local/tomcat/webapps/host-manager
+11-Oct-2017 20:40:50.079 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /usr/local/tomcat/webapps/host-manager has finished in 196 ms
+11-Oct-2017 20:40:50.090 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+11-Oct-2017 20:40:50.187 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+11-Oct-2017 20:40:50.247 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2901 ms
+11-Oct-2017 20:42:27.052 INFO [Thread-3] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+11-Oct-2017 20:42:27.123 INFO [Thread-3] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+11-Oct-2017 20:42:27.124 INFO [Thread-3] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+11-Oct-2017 20:42:27.239 INFO [Thread-3] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+11-Oct-2017 20:42:27.292 INFO [Thread-3] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+11-Oct-2017 20:42:27.345 INFO [Thread-3] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+11-Oct-2017 20:42:27.346 INFO [Thread-3] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+alex@alex-VirtualBox:~$ docker run --name my_mysql -e MYSQL_ROOT_PASSWORD=cs6440 -d mysql:5.7
+Unable to find image 'mysql:5.7' locally
+5.7: Pulling from library/mysql
+85b1f47fba49: Already exists 
+27dc53f13a11: Pull complete 
+095c8ae4182d: Pull complete 
+0972f6b9a7de: Pull complete 
+1b199048e1da: Pull complete 
+159de3cf101e: Pull complete 
+963d934c2fcd: Pull complete 
+f4b66a97a0d0: Pull complete 
+f34057997f40: Pull complete 
+ca1db9a06aa4: Pull complete 
+0f913cb2cc0c: Pull complete 
+Digest: sha256:bfb22e93ee87c6aab6c1c9a4e7cdc68e9cb9b64920f28fa289f9ffae9fe8e173
+Status: Downloaded newer image for mysql:5.7
+98ff937b057bae508968b76b2b0f03a37291fd35ceeac4913941f89e2e977871
+alex@alex-VirtualBox:~$ docker run -it --link my_mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"' 
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+Digest: sha256:bfb22e93ee87c6aab6c1c9a4e7cdc68e9cb9b64920f28fa289f9ffae9fe8e173
+Status: Downloaded newer image for mysql:latest
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.19 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database cs6440
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use cs6440;
+Database changed
+mysql> create table my_eden (
+    -> id varchar(20),
+    -> date_of_death date,
+    -> cause_of_death varchar(1000),
+    -> antecedent_cause varchar(1000));
+Query OK, 0 rows affected (0.26 sec)
+
+mysql> insert into my_eden values ('123456','1-jan-2010','heart attack','heart disease');
+ERROR 1292 (22007): Incorrect date value: '1-jan-2010' for column 'date_of_death' at row 1
+mysql> insert into my_eden values ('123456','2010-01-01','heart attack','heart disease');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from my_eden;
++--------+---------------+----------------+------------------+
+| id     | date_of_death | cause_of_death | antecedent_cause |
++--------+---------------+----------------+------------------+
+| 123456 | 2010-01-01    | heart attack   | heart disease    |
++--------+---------------+----------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> \q
+Bye
+alex@alex-VirtualBox:~$ docker run -it --link my_mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"' 
+docker: Error response from daemon: Cannot link to a non running container: /my_mysql AS /jolly_lumiere/mysql.
+ERRO[0000] error waiting for container: context canceled 
+alex@alex-VirtualBox:~$ docker run --name my_mysql -e MYSQL_ROOT_PASSWORD=cs6440 -d mysql:5.7
+docker: Error response from daemon: Conflict. The container name "/my_mysql" is already in use by container "98ff937b057bae508968b76b2b0f03a37291fd35ceeac4913941f89e2e977871". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+alex@alex-VirtualBox:~$ docker start my_mysql
+my_mysql
+alex@alex-VirtualBox:~$ docker run -it --link my_mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"' 
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.19 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cs6440             |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use cs6440;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from my_eden;
++--------+---------------+----------------+------------------+
+| id     | date_of_death | cause_of_death | antecedent_cause |
++--------+---------------+----------------+------------------+
+| 123456 | 2010-01-01    | heart attack   | heart disease    |
++--------+---------------+----------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> \q
+Bye
+alex@alex-VirtualBox:~$ docker run --name my_postgres -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+Unable to find image 'postgres:9.6.5' locally
+9.6.5: Pulling from library/postgres
+85b1f47fba49: Already exists 
+8f30b0e3b3b9: Pull complete 
+fe77d699370a: Pull complete 
+6c2dc1dca46b: Pull complete 
+355ccacf41c5: Pull complete 
+7c7b1581b93b: Pull complete 
+15e2750bfbf9: Pull complete 
+b53d44bda70c: Pull complete 
+434e93d2134c: Pull complete 
+fe780ba55553: Pull complete 
+290faa3a7876: Pull complete 
+0a9cdb7c5977: Pull complete 
+Digest: sha256:cb2a36a17a2e8334aac4bbd6492a930c0d6fb7277d02299955b8084c35a520c9
+Status: Downloaded newer image for postgres:9.6.5
+af2661c2303de1ab1039559eb3e4b5a21123994f7fef91d366e4c4f93f1ffc1e
+alex@alex-VirtualBox:~$ docker run -it --rm --link my_postgres:postgres postgres psql -h postgres -U postgres
+Unable to find image 'postgres:latest' locally
+latest: Pulling from library/postgres
+3e17c6eae66c: Pull complete 
+3d89ae9a47e4: Pull complete 
+f7726fda7efe: Pull complete 
+d1838499bd8f: Pull complete 
+a5ec5aa60735: Pull complete 
+1571d7170291: Pull complete 
+0d6e41e13732: Pull complete 
+787e3c45a9bb: Pull complete 
+7b234cf83b22: Pull complete 
+3a8ad2440289: Pull complete 
+c58cd00fd1b1: Pull complete 
+ff781a2b3014: Pull complete 
+5dcdc973df69: Pull complete 
+Digest: sha256:0adb3da10ce7130473126631d5c198e4a416d55ea032653f7c4d983ad0086f6d
+Status: Downloaded newer image for postgres:latest
+Password for user postgres: 
+psql (10.0, server 9.6.5)
+Type "help" for help.
+
+postgres=# show databases;
+ERROR:  unrecognized configuration parameter "databases"
+postgres=# create table my_doh_mpi (
+postgres(# last_name varchar,
+postgres(# first_name varchar,
+postgres(# dob date,
+postgres(# gender varchar,
+postgres(# eden_id varchar);
+CREATE TABLE
+postgres=# insert into my_doh_mpi values ('Smith','John','1-jan-1980','M','123456');
+INSERT 0 1
+postgres=# select * from my_doh_mpi;
+ last_name | first_name |    dob     | gender | eden_id 
+-----------+------------+------------+--------+---------
+ Smith     | John       | 1980-01-01 | M      | 123456
+(1 row)
+
+postgres=# \q
+alex@alex-VirtualBox:~$ docker run --name my_postgres -p 5432:5432 -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+docker: Error response from daemon: Conflict. The container name "/my_postgres" is already in use by container "af2661c2303de1ab1039559eb3e4b5a21123994f7fef91d366e4c4f93f1ffc1e". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+alex@alex-VirtualBox:~$ docker run --name my_postgres -p 5432:5432 -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+2cb0fbd8b93dde7b1cc5bc9e9b98c3a1264e5ddccde8aeaa40559e8203d1def9
+alex@alex-VirtualBox:~$ docker run -it --rm --link my_postgres:postgres postgres psql -h postgres -U postgres
+Password for user postgres: 
+psql (10.0, server 9.6.5)
+Type "help" for help.
+
+postgres=# select * from my_doh_mpi;
+ERROR:  relation "my_doh_mpi" does not exist
+LINE 1: select * from my_doh_mpi;
+                      ^
+postgres=# create table my_doh_mpi (
+postgres(# last_name varchar,
+postgres(# first_name varchar,
+postgres(# dob date,
+postgres(# gender varchar,
+postgres(# eden_id varchar);
+CREATE TABLE
+postgres=# insert into my_doh_mpi values ('Smith','John','1-jan-1980','M','123456');
+INSERT 0 1
+postgres=# select * from my_doh_mpi;
+ last_name | first_name |    dob     | gender | eden_id 
+-----------+------------+------------+--------+---------
+ Smith     | John       | 1980-01-01 | M      | 123456
+(1 row)
+
+postgres=# \q
+alex@alex-VirtualBox:~$ docker run --name my_postgres  -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+docker: Error response from daemon: Conflict. The container name "/my_postgres" is already in use by container "2cb0fbd8b93dde7b1cc5bc9e9b98c3a1264e5ddccde8aeaa40559e8203d1def9". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+alex@alex-VirtualBox:~$ docker run --name my_postgres  -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+e7a06aba0f99b57021e06aa9ed0453a86150edfc6a98708d41da0fbabcb1ba06
+alex@alex-VirtualBox:~$ docker run -it --rm --link my_postgres:postgres postgres psql -h postgres -U postgres
+Password for user postgres: 
+psql (10.0, server 9.6.5)
+Type "help" for help.
+
+postgres=# select * from  my_doh_mpi;
+ERROR:  relation "my_doh_mpi" does not exist
+LINE 1: select * from  my_doh_mpi;
+                       ^
+postgres=# create table my_doh_mpi (
+postgres(# last_name varchar,
+postgres(# first_name varchar,
+postgres(# dob date,
+postgres(# gender varchar,
+postgres(# eden_id varchar);
+CREATE TABLE
+postgres=# insert into my_doh_mpi values ('Smith','John','1-jan-1980','M','123456');
+INSERT 0 1
+postgres=# select * from my_doh_mpi;
+ last_name | first_name |    dob     | gender | eden_id 
+-----------+------------+------------+--------+---------
+ Smith     | John       | 1980-01-01 | M      | 123456
+(1 row)
+
+postgres=# 
+postgres=# select * from my_doh_mpi;
+ last_name | first_name |    dob     | gender | eden_id 
+-----------+------------+------------+--------+---------
+ Smith     | John       | 1980-01-01 | M      | 123456
+(1 row)
+
+postgres=# /q
+postgres-# \q
+alex@alex-VirtualBox:~$ 
+
+
+
+
+
+
+
+
+
+
+
+history of commands:
+
+
+
+911  uname -a
+  912  docker
+  913  sudo apt-get remove docker docker-engine docker.io
+  914  sudo apt-get update
+  915  sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+  916  sudo apt-get update
+  917  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  918  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  919  sudo apt-key fingerprint 0EBFCD88
+  920  lsb_release -cs
+  921  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  922  $(lsb_release -cs) \
+  923  stable"
+  924  sudo apt-get update
+  925  sudo apt-get install docker-ce
+  926  sudo docker run hello-world
+  927  pwd
+  928  docker run -it --rm -p 8888:8080 tomcat:8.0
+  929  sudo usermod -aG docker ${USER}
+  930  docker run -it --rm -p 8888:8080 tomcat:8.0
+  931  echo $USER
+  932  groups alex
+  933  docker run -it --rm -p 8888:8080 tomcat:8.0
+  934  docker run --name my_mysql -e MYSQL_ROOT_PASSWORD=cs6440 -d mysql:5.7
+  935  docker run -it --link my_mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"' 
+  936  docker run --name my_mysql -e MYSQL_ROOT_PASSWORD=cs6440 -d mysql:5.7
+  937  docker start my_mysql
+  938  docker run -it --link my_mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"' 
+  939  docker run --name my_postgres -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+  940  docker run -it --rm --link my_postgres:postgres postgres psql -h postgres -U postgres
+  941  docker run --name my_postgres -p 5432:5432 -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+  942  docker run -it --rm --link my_postgres:postgres postgres psql -h postgres -U postgres
+  943  docker run --name my_postgres  -e POSTGRES_PASSWORD=cs6440 -d postgres:9.6.5
+  944  docker run -it --rm --link my_postgres:postgres postgres psql -h postgres -U postgres
+  945  history
+alex@alex-VirtualBox:~$ 
+

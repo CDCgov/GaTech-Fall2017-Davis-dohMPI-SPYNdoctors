@@ -1,0 +1,83 @@
+I fisrt populated datadase in this way:
+
+
+student@student-VirtualBox:~/doh_mpi_eden$ docker run --name my_postgres -e POSTGRES_PASSWORD=cs6440 -e PGDATA=/var/lib/postgresql/pgdata -d postgres:9.6.5
+cb873263db1f463dcc179a6ed11d1c7d014007442cab174e587ea7d0686e5d65
+student@student-VirtualBox:~/doh_mpi_eden$ docker run -it --rm --name psql_cont --link my_postgres:postgres postgres /bin/bash
+root@42b9159878d0:/# psql -h postgres -U postgres < create_matcher.sql
+bash: create_matcher.sql: No such file or directory
+-----
+here on another terminal I ran:  
+student@student-VirtualBox:~/doh_mpi_eden/postgres_script$ docker cp create_matcher.sql psql_cont:/create_matcher.sql
+then continued:
+-------------
+
+root@42b9159878d0:/# psql -h postgres -U postgres < create_matcher.sql
+Password for user postgres: 
+SET
+SET
+SET
+SET
+SET
+SET
+CREATE EXTENSION
+COMMENT
+CREATE EXTENSION
+COMMENT
+CREATE EXTENSION
+COMMENT
+SET
+SET
+CREATE TABLE
+CREATE SEQUENCE
+ALTER SEQUENCE
+CREATE TABLE
+...
+
+
+
+
+Then pushed it to hub.docker.com:
+
+student@student-VirtualBox:/media/sf_shared$ docker commit my_postgres my_postgres_full
+sha256:99092a7efe5463fda81c3ae5ab3a22543ffc51810f4dde766667d516053bdd62
+student@student-VirtualBox:/media/sf_shared$ docker tag my_postgres_full ayanovsk/my_postgres_full
+student@student-VirtualBox:/media/sf_shared$ docker push ayanovsk/my_postgres_full
+The push refers to a repository [docker.io/ayanovsk/my_postgres_full]
+e0806d64f85e: Preparing 
+491910f63a6a: Preparing 
+9431515256e5: Preparing 
+4c2612759927: Preparing 
+c3688c2ce7de: Preparing 
+30027bb3b431: Waiting 
+7044659444c1: Waiting 
+38ac14e86d82: Waiting 
+b713f281bbda: Waiting 
+007748c889fc: Waiting 
+d376c2645479: Waiting 
+f900a7cb8fa0: Waiting 
+c01c63c6823d: Waiting 
+denied: requested access to the resource is denied
+student@student-VirtualBox:/media/sf_shared$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: ayanovsk
+Password: 
+Login Succeeded
+student@student-VirtualBox:/media/sf_shared$ docker push ayanovsk/my_postgres_full
+The push refers to a repository [docker.io/ayanovsk/my_postgres_full]
+e0806d64f85e: Pushed 
+491910f63a6a: Pushed 
+9431515256e5: Pushed 
+4c2612759927: Pushed 
+c3688c2ce7de: Mounted from library/postgres 
+30027bb3b431: Mounted from library/postgres 
+7044659444c1: Pushed 
+38ac14e86d82: Mounted from library/postgres 
+b713f281bbda: Mounted from library/postgres 
+007748c889fc: Pushed 
+d376c2645479: Pushed 
+f900a7cb8fa0: Pushed 
+c01c63c6823d: Pushed 
+latest: digest: sha256:e517adaed5c2245046440d169ebf49ef971699f7882394fc8e7c022243b2bd7b size: 3033
+student@student-VirtualBox:/media/sf_shared$ 
+

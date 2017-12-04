@@ -1,0 +1,6 @@
+From tomcat:8.0-jre8
+
+ADD DohMPI_EDEN_Client.jar /usr/local/tomcat
+
+CMD ["java", "-jar", "DohMPI_EDEN_Client.jar", "http://localhost:8888/DohMPI_EDEN/rest"]
+

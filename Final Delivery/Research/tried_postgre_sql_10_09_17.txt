@@ -1,0 +1,617 @@
+08/28/2017  10:07 PM           630,784 wxmsw28u_xrc_vc_custom.dll
+08/28/2017  10:07 PM            87,552 zic.exe
+08/28/2017  10:07 PM            78,336 zlib1.dll
+              64 File(s)     28,096,158 bytes
+               2 Dir(s)  225,292,378,112 bytes free
+
+C:\install_folder\PostgreSQL\pgsql\bin>startdb
+
+C:\install_folder\PostgreSQL\pgsql\bin>"C:\install_folder\PostgreSQL\pgsql\bin\p
+g_ctl" -D "C:\install_folder\PostgreSQL\pgsql\data" -l "C:\install_folder\Postgr
+eSQL\pgsql\log\pgsql.log" start
+server starting
+
+C:\install_folder\PostgreSQL\pgsql\bin>psql -U postgres
+Password for user postgres:
+psql (9.6.5)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=#
+postgres=# select * from foo;
+ERROR:  relation "foo" does not exist
+LINE 1: select * from foo;
+                      ^
+postgres=# show tables;
+ERROR:  unrecognized configuration parameter "tables"
+postgres=# help
+You are using psql, the command-line interface to PostgreSQL.
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+       \q to quit
+postgres=# \h
+Available help:
+  ABORT                            DEALLOCATE
+  ALTER AGGREGATE                  DECLARE
+  ALTER COLLATION                  DELETE
+  ALTER CONVERSION                 DISCARD
+  ALTER DATABASE                   DO
+  ALTER DEFAULT PRIVILEGES         DROP ACCESS METHOD
+  ALTER DOMAIN                     DROP AGGREGATE
+  ALTER EVENT TRIGGER              DROP CAST
+  ALTER EXTENSION                  DROP COLLATION
+  ALTER FOREIGN DATA WRAPPER       DROP CONVERSION
+  ALTER FOREIGN TABLE              DROP DATABASE
+  ALTER FUNCTION                   DROP DOMAIN
+  ALTER GROUP                      DROP EVENT TRIGGER
+  ALTER INDEX                      DROP EXTENSION
+  ALTER LANGUAGE                   DROP FOREIGN DATA WRAPPER
+  ALTER LARGE OBJECT               DROP FOREIGN TABLE
+  ALTER MATERIALIZED VIEW          DROP FUNCTION
+  ALTER OPERATOR                   DROP GROUP
+  ALTER OPERATOR CLASS             DROP INDEX
+  ALTER OPERATOR FAMILY            DROP LANGUAGE
+  ALTER POLICY                     DROP MATERIALIZED VIEW
+  ALTER ROLE                       DROP OPERATOR
+  ALTER RULE                       DROP OPERATOR CLASS
+  ALTER SCHEMA                     DROP OPERATOR FAMILY
+  ALTER SEQUENCE                   DROP OWNED
+  ALTER SERVER                     DROP POLICY
+  ALTER SYSTEM                     DROP ROLE
+  ALTER TABLE                      DROP RULE
+  ALTER TABLESPACE                 DROP SCHEMA
+  ALTER TEXT SEARCH CONFIGURATION  DROP SEQUENCE
+  ALTER TEXT SEARCH DICTIONARY     DROP SERVER
+  ALTER TEXT SEARCH PARSER         DROP TABLE
+  ALTER TEXT SEARCH TEMPLATE       DROP TABLESPACE
+  ALTER TRIGGER                    DROP TEXT SEARCH CONFIGURATION
+  ALTER TYPE                       DROP TEXT SEARCH DICTIONARY
+  ALTER USER                       DROP TEXT SEARCH PARSER
+  ALTER USER MAPPING               DROP TEXT SEARCH TEMPLATE
+  ALTER VIEW                       DROP TRANSFORM
+  ANALYZE                          DROP TRIGGER
+  BEGIN                            DROP TYPE
+  CHECKPOINT                       DROP USER
+  CLOSE                            DROP USER MAPPING
+  CLUSTER                          DROP VIEW
+  COMMENT                          END
+  COMMIT                           EXECUTE
+  COMMIT PREPARED                  EXPLAIN
+  COPY                             FETCH
+  CREATE ACCESS METHOD             GRANT
+  CREATE AGGREGATE                 IMPORT FOREIGN SCHEMA
+  CREATE CAST                      INSERT
+  CREATE COLLATION                 LISTEN
+  CREATE CONVERSION                LOAD
+  CREATE DATABASE                  LOCK
+  CREATE DOMAIN                    MOVE
+  CREATE EVENT TRIGGER             NOTIFY
+  CREATE EXTENSION                 PREPARE
+  CREATE FOREIGN DATA WRAPPER      PREPARE TRANSACTION
+  CREATE FOREIGN TABLE             REASSIGN OWNED
+  CREATE FUNCTION                  REFRESH MATERIALIZED VIEW
+  CREATE GROUP                     REINDEX
+  CREATE INDEX                     RELEASE SAVEPOINT
+  CREATE LANGUAGE                  RESET
+  CREATE MATERIALIZED VIEW         REVOKE
+  CREATE OPERATOR                  ROLLBACK
+  CREATE OPERATOR CLASS            ROLLBACK PREPARED
+  CREATE OPERATOR FAMILY           ROLLBACK TO SAVEPOINT
+  CREATE POLICY                    SAVEPOINT
+  CREATE ROLE                      SECURITY LABEL
+  CREATE RULE                      SELECT
+  CREATE SCHEMA                    SELECT INTO
+  CREATE SEQUENCE                  SET
+  CREATE SERVER                    SET CONSTRAINTS
+  CREATE TABLE                     SET ROLE
+  CREATE TABLE AS                  SET SESSION AUTHORIZATION
+  CREATE TABLESPACE                SET TRANSACTION
+  CREATE TEXT SEARCH CONFIGURATION SHOW
+  CREATE TEXT SEARCH DICTIONARY    START TRANSACTION
+  CREATE TEXT SEARCH PARSER        TABLE
+  CREATE TEXT SEARCH TEMPLATE      TRUNCATE
+  CREATE TRANSFORM                 UNLISTEN
+  CREATE TRIGGER                   UPDATE
+  CREATE TYPE                      VACUUM
+  CREATE USER                      VALUES
+  CREATE USER MAPPING              WITH
+  CREATE VIEW
+
+postgres=# \?
+General
+  \copyright             show PostgreSQL usage and distribution terms
+  \errverbose            show most recent error message at maximum verbosity
+  \g [FILE] or ;         execute query (and send results to file or |pipe)
+  \gexec                 execute query, then execute each value in its result
+  \gset [PREFIX]         execute query and store results in psql variables
+  \q                     quit psql
+  \crosstabview [COLUMNS] execute query and display results in crosstab
+  \watch [SEC]           execute query every SEC seconds
+
+Help
+  \? [commands]          show help on backslash commands
+  \? options             show help on psql command-line options
+  \? variables           show help on special variables
+  \h [NAME]              help on syntax of SQL commands, * for all commands
+
+Query Buffer
+  \e [FILE] [LINE]       edit the query buffer (or file) with external editor
+  \ef [FUNCNAME [LINE]]  edit function definition with external editor
+  \ev [VIEWNAME [LINE]]  edit view definition with external editor
+  \p                     show the contents of the query buffer
+  \r                     reset (clear) the query buffer
+  \w FILE                write query buffer to file
+
+Input/Output
+  \copy ...              perform SQL COPY with data stream to the client host
+  \echo [STRING]         write string to standard output
+  \i FILE                execute commands from file
+  \ir FILE               as \i, but relative to location of current script
+  \o [FILE]              send all query results to file or |pipe
+  \qecho [STRING]        write string to query output stream (see \o)
+
+Informational
+  (options: S = show system objects, + = additional detail)
+  \d[S+]                 list tables, views, and sequences
+  \d[S+]  NAME           describe table, view, sequence, or index
+  \da[S]  [PATTERN]      list aggregates
+  \dA[+]  [PATTERN]      list access methods
+  \db[+]  [PATTERN]      list tablespaces
+  \dc[S+] [PATTERN]      list conversions
+  \dC[+]  [PATTERN]      list casts
+  \dd[S]  [PATTERN]      show object descriptions not displayed elsewhere
+  \ddp    [PATTERN]      list default privileges
+  \dD[S+] [PATTERN]      list domains
+  \det[+] [PATTERN]      list foreign tables
+  \des[+] [PATTERN]      list foreign servers
+  \deu[+] [PATTERN]      list user mappings
+  \dew[+] [PATTERN]      list foreign-data wrappers
+  \df[antw][S+] [PATRN]  list [only agg/normal/trigger/window] functions
+  \dF[+]  [PATTERN]      list text search configurations
+  \dFd[+] [PATTERN]      list text search dictionaries
+  \dFp[+] [PATTERN]      list text search parsers
+  \dFt[+] [PATTERN]      list text search templates
+  \dg[S+] [PATTERN]      list roles
+  \di[S+] [PATTERN]      list indexes
+  \dl                    list large objects, same as \lo_list
+  \dL[S+] [PATTERN]      list procedural languages
+  \dm[S+] [PATTERN]      list materialized views
+  \dn[S+] [PATTERN]      list schemas
+  \do[S]  [PATTERN]      list operators
+  \dO[S+] [PATTERN]      list collations
+  \dp     [PATTERN]      list table, view, and sequence access privileges
+  \drds [PATRN1 [PATRN2]] list per-database role settings
+  \ds[S+] [PATTERN]      list sequences
+  \dt[S+] [PATTERN]      list tables
+  \dT[S+] [PATTERN]      list data types
+  \du[S+] [PATTERN]      list roles
+  \dv[S+] [PATTERN]      list views
+  \dE[S+] [PATTERN]      list foreign tables
+  \dx[+]  [PATTERN]      list extensions
+  \dy     [PATTERN]      list event triggers
+  \l[+]   [PATTERN]      list databases
+  \sf[+]  FUNCNAME       show a function's definition
+  \sv[+]  VIEWNAME       show a view's definition
+  \z      [PATTERN]      same as \dp
+
+Formatting
+  \a                     toggle between unaligned and aligned output mode
+  \C [STRING]            set table title, or unset if none
+  \f [STRING]            show or set field separator for unaligned query output
+  \H                     toggle HTML output mode (currently off)
+  \pset [NAME [VALUE]]   set table output option
+                         (NAME := {format|border|expanded|fieldsep|fieldsep_zero
+|footer|null|
+                         numericlocale|recordsep|recordsep_zero|tuples_only|titl
+e|tableattr|pager|
+                         unicode_border_linestyle|unicode_column_linestyle|unico
+de_header_linestyle})
+  \t [on|off]            show only rows (currently off)
+  \T [STRING]            set HTML <table> tag attributes, or unset if none
+  \x [on|off|auto]       toggle expanded output (currently off)
+
+Connection
+  \c[onnect] {[DBNAME|- USER|- HOST|- PORT|-] | conninfo}
+                         connect to new database (currently "postgres")
+  \encoding [ENCODING]   show or set client encoding
+  \password [USERNAME]   securely change the password for a user
+  \conninfo              display information about current connection
+
+Operating System
+  \cd [DIR]              change the current working directory
+  \setenv NAME [VALUE]   set or unset environment variable
+  \timing [on|off]       toggle timing of commands (currently off)
+  \! [COMMAND]           execute command in shell or start interactive shell
+
+Variables
+  \prompt [TEXT] NAME    prompt user to set internal variable
+  \set [NAME [VALUE]]    set internal variable, or list all if no parameters
+  \unset NAME            unset (delete) internal variable
+
+Large Objects
+  \lo_export LOBOID FILE
+  \lo_import FILE [COMMENT]
+  \lo_list
+  \lo_unlink LOBOID      large object operations
+
+postgres=# create table my_table(x int, y string);
+ERROR:  type "string" does not exist
+LINE 1: create table my_table(x int, y string);
+                                       ^
+postgres=# create table my_table(x int, y varchar);
+CREATE TABLE
+postgres=# select * from my_table;
+ x | y
+---+---
+(0 rows)
+
+
+postgres=# insert into my_table value (5,'abc');
+ERROR:  syntax error at or near "value"
+LINE 1: insert into my_table value (5,'abc');
+                             ^
+postgres=# insert into my_table values (5, 'abc');
+INSERT 0 1
+postgres=# select * from my_table;
+ x |  y
+---+-----
+ 5 | abc
+(1 row)
+
+
+postgres=# help
+You are using psql, the command-line interface to PostgreSQL.
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+       \q to quit
+postgres=# \q
+
+C:\install_folder\PostgreSQL\pgsql\bin>psql -U postgres
+Password for user postgres:
+psql (9.6.5)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# select * from my_table;
+ x |  y
+---+-----
+ 5 | abc
+(1 row)
+
+
+postgres=# \q
+
+C:\install_folder\PostgreSQL\pgsql\bin>stopdb.bat
+
+C:\install_folder\PostgreSQL\pgsql\bin>"C:\install_folder\PostgreSQL\pgsql\bin\p
+g_ctl" -D "C:\install_folder\PostgreSQL\pgsql\data" -l "C:\install_folder\Postgr
+eSQL\pgsql\log\pgsql.log" stop
+waiting for server to shut down.... done
+server stopped
+
+C:\install_folder\PostgreSQL\pgsql\bin>
+
+
+
+
+
+
+LINE 1: select * from foo;
+                      ^
+postgres=# show tables;
+ERROR:  unrecognized configuration parameter "tables"
+postgres=# help
+You are using psql, the command-line interface to PostgreSQL.
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+       \q to quit
+postgres=# \h
+Available help:
+  ABORT                            DEALLOCATE
+  ALTER AGGREGATE                  DECLARE
+  ALTER COLLATION                  DELETE
+  ALTER CONVERSION                 DISCARD
+  ALTER DATABASE                   DO
+  ALTER DEFAULT PRIVILEGES         DROP ACCESS METHOD
+  ALTER DOMAIN                     DROP AGGREGATE
+  ALTER EVENT TRIGGER              DROP CAST
+  ALTER EXTENSION                  DROP COLLATION
+  ALTER FOREIGN DATA WRAPPER       DROP CONVERSION
+  ALTER FOREIGN TABLE              DROP DATABASE
+  ALTER FUNCTION                   DROP DOMAIN
+  ALTER GROUP                      DROP EVENT TRIGGER
+  ALTER INDEX                      DROP EXTENSION
+  ALTER LANGUAGE                   DROP FOREIGN DATA WRAPPER
+  ALTER LARGE OBJECT               DROP FOREIGN TABLE
+  ALTER MATERIALIZED VIEW          DROP FUNCTION
+  ALTER OPERATOR                   DROP GROUP
+  ALTER OPERATOR CLASS             DROP INDEX
+  ALTER OPERATOR FAMILY            DROP LANGUAGE
+  ALTER POLICY                     DROP MATERIALIZED VIEW
+  ALTER ROLE                       DROP OPERATOR
+  ALTER RULE                       DROP OPERATOR CLASS
+  ALTER SCHEMA                     DROP OPERATOR FAMILY
+  ALTER SEQUENCE                   DROP OWNED
+  ALTER SERVER                     DROP POLICY
+  ALTER SYSTEM                     DROP ROLE
+  ALTER TABLE                      DROP RULE
+  ALTER TABLESPACE                 DROP SCHEMA
+  ALTER TEXT SEARCH CONFIGURATION  DROP SEQUENCE
+  ALTER TEXT SEARCH DICTIONARY     DROP SERVER
+  ALTER TEXT SEARCH PARSER         DROP TABLE
+  ALTER TEXT SEARCH TEMPLATE       DROP TABLESPACE
+  ALTER TRIGGER                    DROP TEXT SEARCH CONFIGURATION
+  ALTER TYPE                       DROP TEXT SEARCH DICTIONARY
+  ALTER USER                       DROP TEXT SEARCH PARSER
+  ALTER USER MAPPING               DROP TEXT SEARCH TEMPLATE
+  ALTER VIEW                       DROP TRANSFORM
+  ANALYZE                          DROP TRIGGER
+  BEGIN                            DROP TYPE
+  CHECKPOINT                       DROP USER
+  CLOSE                            DROP USER MAPPING
+  CLUSTER                          DROP VIEW
+  COMMENT                          END
+  COMMIT                           EXECUTE
+  COMMIT PREPARED                  EXPLAIN
+  COPY                             FETCH
+  CREATE ACCESS METHOD             GRANT
+  CREATE AGGREGATE                 IMPORT FOREIGN SCHEMA
+  CREATE CAST                      INSERT
+  CREATE COLLATION                 LISTEN
+  CREATE CONVERSION                LOAD
+  CREATE DATABASE                  LOCK
+  CREATE DOMAIN                    MOVE
+  CREATE EVENT TRIGGER             NOTIFY
+  CREATE EXTENSION                 PREPARE
+  CREATE FOREIGN DATA WRAPPER      PREPARE TRANSACTION
+  CREATE FOREIGN TABLE             REASSIGN OWNED
+  CREATE FUNCTION                  REFRESH MATERIALIZED VIEW
+  CREATE GROUP                     REINDEX
+  CREATE INDEX                     RELEASE SAVEPOINT
+  CREATE LANGUAGE                  RESET
+  CREATE MATERIALIZED VIEW         REVOKE
+  CREATE OPERATOR                  ROLLBACK
+  CREATE OPERATOR CLASS            ROLLBACK PREPARED
+  CREATE OPERATOR FAMILY           ROLLBACK TO SAVEPOINT
+  CREATE POLICY                    SAVEPOINT
+  CREATE ROLE                      SECURITY LABEL
+  CREATE RULE                      SELECT
+  CREATE SCHEMA                    SELECT INTO
+  CREATE SEQUENCE                  SET
+  CREATE SERVER                    SET CONSTRAINTS
+  CREATE TABLE                     SET ROLE
+  CREATE TABLE AS                  SET SESSION AUTHORIZATION
+  CREATE TABLESPACE                SET TRANSACTION
+  CREATE TEXT SEARCH CONFIGURATION SHOW
+  CREATE TEXT SEARCH DICTIONARY    START TRANSACTION
+  CREATE TEXT SEARCH PARSER        TABLE
+  CREATE TEXT SEARCH TEMPLATE      TRUNCATE
+  CREATE TRANSFORM                 UNLISTEN
+  CREATE TRIGGER                   UPDATE
+  CREATE TYPE                      VACUUM
+  CREATE USER                      VALUES
+  CREATE USER MAPPING              WITH
+  CREATE VIEW
+
+postgres=# \?
+General
+  \copyright             show PostgreSQL usage and distribution terms
+  \errverbose            show most recent error message at maximum verbosity
+  \g [FILE] or ;         execute query (and send results to file or |pipe)
+  \gexec                 execute query, then execute each value in its result
+  \gset [PREFIX]         execute query and store results in psql variables
+  \q                     quit psql
+  \crosstabview [COLUMNS] execute query and display results in crosstab
+  \watch [SEC]           execute query every SEC seconds
+
+Help
+  \? [commands]          show help on backslash commands
+  \? options             show help on psql command-line options
+  \? variables           show help on special variables
+  \h [NAME]              help on syntax of SQL commands, * for all commands
+
+Query Buffer
+  \e [FILE] [LINE]       edit the query buffer (or file) with external editor
+  \ef [FUNCNAME [LINE]]  edit function definition with external editor
+  \ev [VIEWNAME [LINE]]  edit view definition with external editor
+  \p                     show the contents of the query buffer
+  \r                     reset (clear) the query buffer
+  \w FILE                write query buffer to file
+
+Input/Output
+  \copy ...              perform SQL COPY with data stream to the client host
+  \echo [STRING]         write string to standard output
+  \i FILE                execute commands from file
+  \ir FILE               as \i, but relative to location of current script
+  \o [FILE]              send all query results to file or |pipe
+  \qecho [STRING]        write string to query output stream (see \o)
+
+Informational
+  (options: S = show system objects, + = additional detail)
+  \d[S+]                 list tables, views, and sequences
+  \d[S+]  NAME           describe table, view, sequence, or index
+  \da[S]  [PATTERN]      list aggregates
+  \dA[+]  [PATTERN]      list access methods
+  \db[+]  [PATTERN]      list tablespaces
+  \dc[S+] [PATTERN]      list conversions
+  \dC[+]  [PATTERN]      list casts
+  \dd[S]  [PATTERN]      show object descriptions not displayed elsewhere
+  \ddp    [PATTERN]      list default privileges
+  \dD[S+] [PATTERN]      list domains
+  \det[+] [PATTERN]      list foreign tables
+  \des[+] [PATTERN]      list foreign servers
+  \deu[+] [PATTERN]      list user mappings
+  \dew[+] [PATTERN]      list foreign-data wrappers
+  \df[antw][S+] [PATRN]  list [only agg/normal/trigger/window] functions
+  \dF[+]  [PATTERN]      list text search configurations
+  \dFd[+] [PATTERN]      list text search dictionaries
+  \dFp[+] [PATTERN]      list text search parsers
+  \dFt[+] [PATTERN]      list text search templates
+  \dg[S+] [PATTERN]      list roles
+  \di[S+] [PATTERN]      list indexes
+  \dl                    list large objects, same as \lo_list
+  \dL[S+] [PATTERN]      list procedural languages
+  \dm[S+] [PATTERN]      list materialized views
+  \dn[S+] [PATTERN]      list schemas
+  \do[S]  [PATTERN]      list operators
+  \dO[S+] [PATTERN]      list collations
+  \dp     [PATTERN]      list table, view, and sequence access privileges
+  \drds [PATRN1 [PATRN2]] list per-database role settings
+  \ds[S+] [PATTERN]      list sequences
+  \dt[S+] [PATTERN]      list tables
+  \dT[S+] [PATTERN]      list data types
+  \du[S+] [PATTERN]      list roles
+  \dv[S+] [PATTERN]      list views
+  \dE[S+] [PATTERN]      list foreign tables
+  \dx[+]  [PATTERN]      list extensions
+  \dy     [PATTERN]      list event triggers
+  \l[+]   [PATTERN]      list databases
+  \sf[+]  FUNCNAME       show a function's definition
+  \sv[+]  VIEWNAME       show a view's definition
+  \z      [PATTERN]      same as \dp
+
+Formatting
+  \a                     toggle between unaligned and aligned output mode
+  \C [STRING]            set table title, or unset if none
+  \f [STRING]            show or set field separator for unaligned query output
+  \H                     toggle HTML output mode (currently off)
+  \pset [NAME [VALUE]]   set table output option
+                         (NAME := {format|border|expanded|fieldsep|fieldsep_zero
+|footer|null|
+                         numericlocale|recordsep|recordsep_zero|tuples_only|titl
+e|tableattr|pager|
+                         unicode_border_linestyle|unicode_column_linestyle|unico
+de_header_linestyle})
+  \t [on|off]            show only rows (currently off)
+  \T [STRING]            set HTML <table> tag attributes, or unset if none
+  \x [on|off|auto]       toggle expanded output (currently off)
+
+Connection
+  \c[onnect] {[DBNAME|- USER|- HOST|- PORT|-] | conninfo}
+                         connect to new database (currently "postgres")
+  \encoding [ENCODING]   show or set client encoding
+  \password [USERNAME]   securely change the password for a user
+  \conninfo              display information about current connection
+
+Operating System
+  \cd [DIR]              change the current working directory
+  \setenv NAME [VALUE]   set or unset environment variable
+  \timing [on|off]       toggle timing of commands (currently off)
+  \! [COMMAND]           execute command in shell or start interactive shell
+
+Variables
+  \prompt [TEXT] NAME    prompt user to set internal variable
+  \set [NAME [VALUE]]    set internal variable, or list all if no parameters
+  \unset NAME            unset (delete) internal variable
+
+Large Objects
+  \lo_export LOBOID FILE
+  \lo_import FILE [COMMENT]
+  \lo_list
+  \lo_unlink LOBOID      large object operations
+
+postgres=# create table my_table(x int, y string);
+ERROR:  type "string" does not exist
+LINE 1: create table my_table(x int, y string);
+                                       ^
+postgres=# create table my_table(x int, y varchar);
+CREATE TABLE
+postgres=# select * from my_table;
+ x | y
+---+---
+(0 rows)
+
+
+postgres=# insert into my_table value (5,'abc');
+ERROR:  syntax error at or near "value"
+LINE 1: insert into my_table value (5,'abc');
+                             ^
+postgres=# insert into my_table values (5, 'abc');
+INSERT 0 1
+postgres=# select * from my_table;
+ x |  y
+---+-----
+ 5 | abc
+(1 row)
+
+
+postgres=# help
+You are using psql, the command-line interface to PostgreSQL.
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+       \q to quit
+postgres=# \q
+
+C:\install_folder\PostgreSQL\pgsql\bin>psql -U postgres
+Password for user postgres:
+psql (9.6.5)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# select * from my_table;
+ x |  y
+---+-----
+ 5 | abc
+(1 row)
+
+
+postgres=# \q
+
+C:\install_folder\PostgreSQL\pgsql\bin>stopdb.bat
+
+C:\install_folder\PostgreSQL\pgsql\bin>"C:\install_folder\PostgreSQL\pgsql\bin\p
+g_ctl" -D "C:\install_folder\PostgreSQL\pgsql\data" -l "C:\install_folder\Postgr
+eSQL\pgsql\log\pgsql.log" stop
+waiting for server to shut down.... done
+server stopped
+
+C:\install_folder\PostgreSQL\pgsql\bin>startdb.bat
+
+C:\install_folder\PostgreSQL\pgsql\bin>"C:\install_folder\PostgreSQL\pgsql\bin\p
+g_ctl" -D "C:\install_folder\PostgreSQL\pgsql\data" -l "C:\install_folder\Postgr
+eSQL\pgsql\log\pgsql.log" start
+server starting
+
+C:\install_folder\PostgreSQL\pgsql\bin>psql -U postgres
+Password for user postgres:
+psql (9.6.5)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# select current_database();
+ current_database
+------------------
+ postgres
+(1 row)
+
+
+postgres=# \q
+
+C:\install_folder\PostgreSQL\pgsql\bin>
+
+C:\install_folder\PostgreSQL\pgsql\bin>stopdb
+
+C:\install_folder\PostgreSQL\pgsql\bin>"C:\install_folder\PostgreSQL\pgsql\bin\p
+g_ctl" -D "C:\install_folder\PostgreSQL\pgsql\data" -l "C:\install_folder\Postgr
+eSQL\pgsql\log\pgsql.log" stop
+waiting for server to shut down.... done
+server stopped
+
+C:\install_folder\PostgreSQL\pgsql\bin>
+

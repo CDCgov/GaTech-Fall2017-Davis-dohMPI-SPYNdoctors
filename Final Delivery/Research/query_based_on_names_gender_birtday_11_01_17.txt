@@ -1,0 +1,7 @@
+postgres=# select d.identity_id, if.identifier_type, if.datasource_id, if.identifier_value, id.mpi_id, d.is_deceased, d.deceased_date from demographics d, name fn, name ln, identity id, identifier if where fn.name_type = 'F' and upper(fn.name_word) = upper('EARLY') and ln.name_type = 'L' and upper(ln.name_word) = upper('DAYS') and d.gender = 'F' and d.birth_date = '09/09/2015' and d.identity_id = fn.identity_id and d.identity_id = ln.identity_id and d.identity_id = id.identity_id and d.identity_id = if.identity_id and (if.identifier_type = 'BSFN' or if.datasource_id = 6);
+
+ identity_id | identifier_type | datasource_id | identifier_value | mpi_id | is_deceased | deceased_date 
+-------------+-----------------+---------------+------------------+--------+-------------+---------------
+         594 | BSFN            |             1 | 201500125        |    601 |             | 
+(1 row)
+

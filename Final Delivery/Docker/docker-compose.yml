@@ -1,0 +1,38 @@
+version: '3'
+services: 
+  webserver:
+    image: ayanovsk/my_webserver_notest
+    depends_on:
+        - postgresdb       
+        - mysqldb       
+    ports: 
+        - "8888:8080"
+    links: 
+        - postgresdb
+        - mysqldb
+    
+
+  postgresdb:
+    image: ayanovsk/my_postgres_full
+    environment: 
+        POSTGRES_PASSWORD: cs6440
+
+   
+
+  mysqldb:
+    image: ayanovsk/mysql_perm
+    volumes: 
+       - ./:/docker-entrypoint-initdb.d
+
+  client:
+    image: ayanovsk/my_java_client
+    environment:
+       - DISPLAY
+    volumes:
+       - /tmp/.X11-unix:/tmp/.X11-unix
+    network_mode: host
+
+
+
+
+ 

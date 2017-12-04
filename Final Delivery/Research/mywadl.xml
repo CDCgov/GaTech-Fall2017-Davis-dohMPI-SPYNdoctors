@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+    <doc xmlns:jersey="http://jersey.java.net/" jersey:generatedBy="Jersey: 2.23.2 2016-08-08 17:14:55"/>
+    <doc xmlns:jersey="http://jersey.java.net/" jersey:hint="This is simplified WADL with user and core resources only. To get full WADL with extended resources use the query parameter detail. Link: http://localhost:8888/DohMPI_EDEN/rest/application.wadl?detail=true"/>
+    <grammars>
+        <include href="application.wadl/xsd0.xsd">
+            <doc title="Generated" xml:lang="en"/>
+        </include>
+    </grammars>
+    <resources base="http://localhost:8888/DohMPI_EDEN/rest/">
+        <resource path="myresource">
+            <method id="getIt" name="GET">
+                <response>
+                    <representation mediaType="text/plain"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/">
+            <resource path="/first_name/{first_name}/last_name/{last_name}/gender/{gender}/date_of_birth/{date_of_birth}">
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="gender" style="template" type="xs:string"/>
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="date_of_birth" style="template" type="xs:string"/>
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="last_name" style="template" type="xs:string"/>
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="first_name" style="template" type="xs:string"/>
+                <method id="getResult" name="GET">
+                    <response>
+                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="ServiceResult" mediaType="application/xml"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/match">
+                <method id="getResult" name="POST">
+                    <request>
+                        <representation mediaType="application/x-www-form-urlencoded">
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="first_name" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="last_name" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="gender" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="date_of_birth" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="street_number" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="street_name" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apartment" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="city" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="zip" style="query" type="xs:string"/>
+                            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="phone" style="query" type="xs:string"/>
+                        </representation>
+                    </request>
+                    <response>
+                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="ServiceResult" mediaType="application/xml"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

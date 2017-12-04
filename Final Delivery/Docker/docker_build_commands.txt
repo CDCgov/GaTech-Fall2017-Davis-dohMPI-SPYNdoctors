@@ -1,0 +1,6 @@
+docker build -f Dockerfile_mysql -t mysql_perm .
+docker build -f Dockerfile_tomcat_DohMPI_EDEN -t my_webserver_notest .
+docker build -f Dockerfile_client -t my_client .
+
+
+

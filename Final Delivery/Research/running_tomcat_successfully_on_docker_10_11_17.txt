@@ -1,0 +1,73 @@
+histiry where I ran Tomcat
+
+
+  911  uname -a
+  912  docker
+  913  sudo apt-get remove docker docker-engine docker.io
+  914  sudo apt-get update
+  915  sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+  916  sudo apt-get update
+  917  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  918  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  919  sudo apt-key fingerprint 0EBFCD88
+  920  lsb_release -cs
+  921  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  922  $(lsb_release -cs) \
+  923  stable"
+  924  sudo apt-get update
+  925  sudo apt-get install docker-ce
+  926  sudo docker run hello-world
+  927  pwd
+  928  docker run -it --rm -p 8888:8080 tomcat:8.0
+  929  sudo usermod -aG docker ${USER}
+  930  docker run -it --rm -p 8888:8080 tomcat:8.0
+  931  echo $USER
+  932  groups alex
+  933  pwd
+  934  mkdir my_doh_mpi
+  935  cd my_doh_mpi
+  936  df
+  937  cp /media/sf_shared/my_doh_mpi.war . 
+  938  ls
+  939  gedit Dockerfile
+  940  ls
+  941  docker build -t webserver .
+  942  docker run -it --rm -p 8888:8080 --name my_doh_mpi webserver
+  943  docker run -it -p 8888:8080 --name my_doh_mpi webserver
+  944  pwd
+  945  ls
+  946  docker run -it -p 8888:8080 --entrypoint=/bin/bash --name my_doh_mpi webserver
+  947  ls
+  948  gedit Dockerfile
+  949  docker build -t webserver .
+  950  docker run -it -p 8888:8080 --name my_doh_mpi webserver
+  951  docker run -it -p 8888:8080 --name my_doh_mpi--link my_mysql:mysql --link my_postgres:postgres webserver
+  952  docker run -it -p 8888:8080 --name my_doh_mpi--link my_mysql:5.7 --link my_postgres:9.6.5 webserver
+  953  docker run -it -p 8888:8080 --name my_doh_mpi--link mysql:5.7 --link postgres:9.6.5 webserver
+  954  docker run -it -p 8888:8080 --name my_doh_mpi--link mysql:5.7;postgres:9.6.5 webserver
+  955  docker run -it -p 8888:8080 --name my_doh_mpi--link mysql:5.7;postgres:9.6.5 -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" webserver
+  956  docker run -it -p 8888:8080 --name my_doh_mpi--link mysql:5.7;postgres:9.6.5  webserver
+  957  docker run -it -p 8888:8080 --name my_doh_mpi--link mysql:5.7  webserver
+  958  docker run -it -p 8888:8080 --name my_doh_mpi--link mysql:5.7 -d  webserver
+  959  docker run -it -rm -p 8888:8080 --name my_doh_mpi--link mysql:5.7 -d  webserver
+  960  docker run -it --rm -p 8888:8080 --name my_doh_mpi--link mysql:5.7 -d  webserver
+  961  docker run -it --rm -p 8888:8080 --name my_doh_mpi --link mysql:5.7  webserver
+  962  docker run -it --rm -p 8888:8080 --name my_doh_mpi --link my_mysql  webserver
+  963  docker run -it --rm -p 8888:8080 --name my_doh_mpi --link my_postgres  webserver
+  964  docker run -it --rm -p 8888:8080 --name my_doh_mpi --link my_postgres --link my_sql  webserver
+  965  docker run -it --rm -p 8888:8080 --name my_doh_mpi --link my_postgres --link my_mysql  webserver
+  966  docker run -it --rm -p 8888:8080 -p 5432:5432 -p 3306:3306 --name my_doh_mpi --link my_postgres --link my_mysql  webserver
+  967  docker run -it --rm -p 8888:8080  --name my_doh_mpi --link my_postgres --link my_mysql  webserver
+  968  docker run -it --rm -p 8888:8080  --name my_doh_mpi --link my_postgres:postgres --link my_mysql:mysql  webserver
+  969  docker run -it --rm -p 8888:8080  --name my_doh_mpi --link my_postgres:postgres:9.6.5 --link my_mysql:mysql:5.7  webserver
+  970  docker run -it --rm -p 8888:8080  --name my_doh_mpi  webserver
+  971  docker run -it --rm -p 8888:8080  --name my_doh_mpi --link localhost:my_postgres  webserver
+  972  docker run -it --rm -p 8888:8080  --name my_doh_mpi --link my_postgres:localhost  webserver
+  973  ls
+  974  mv my_doh_mpi.war my_doh_mpi.war_prev
+  975  cp /media/sf_shared/my_doh_mpi.war . 
+  976  cat Dockerfile
+  977  docker build -t webserver .
+  978  docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql:mysqldb --link my_postgres:postgresdb  webserver
+  979  history
+alex@alex-VirtualBox:~/my_doh_mpi$ 

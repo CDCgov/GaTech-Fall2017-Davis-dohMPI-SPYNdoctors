@@ -1,0 +1,10 @@
+docker run --name my_postgres -e POSTGRES_PASSWORD=cs6440 -d ayanovsk/my_postgres_full
+
+ docker run --name my_mysql_full -v /home/student/doh_mpi_eden/data:/docker-entrypoint-initdb.d   -d ayanovsk/mysql_perm
+ 
+ docker run -it --rm -p 8888:8080  --name my_doh_mpi  --link my_mysql_full:mysqldb --link my_postgres:postgresdb ayanovsk/my_webserver_notest
+ 
+
+ 
+ 
+
