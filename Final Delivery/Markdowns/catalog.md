@@ -8,7 +8,7 @@ Mentors:  Dr. Kailah Davis,  Dr. Jeffrey Duncan, Utah Department of Health
 
 Project TA: Paul  Miller
 
-Github link:   [https://github.gatech.edu/gt-hit-fall2017/Master-Person-Index](https://github.gatech.edu/gt-hit-fall2017/Master-Person-Index)
+Github link:   [https://github.com/CDCgov/GaTech-Fall2017-Davis-dohMPI-SPYNdoctors](https://github.com/CDCgov/GaTech-Fall2017-Davis-dohMPI-SPYNdoctors)
 
 # Catalog
 
